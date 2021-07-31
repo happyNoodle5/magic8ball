@@ -38,6 +38,7 @@ form.addEventListener('submit', function (event){
     const formInput = document.forms.ask.question.value;
     replaceImage();
     replaceForm();
+    addResetButton()
 });
 
 function replaceImage() {
@@ -45,30 +46,44 @@ function replaceImage() {
 };
 
 function replaceForm() {
+    // select the container for the input form; to be replaced
     const childAsk = document.getElementById('ask');
 
+    // save user's input in a variable
+    const formInput = document.forms['ask'].question.value;
+
+    // create a jumbotron and replace the above container with it
     const newDiv = document.createElement('div');
-    newDiv.setAttribute("class", "jumbotron row w-100 mb-0 text-center bg-transparent d-flex justify-content-center");
+    newDiv.setAttribute("class", "jumbotron row w-100 my-0 text-center bg-transparent d-flex justify-content-center");
     newDiv.setAttribute("id", "jumbo");
-
-    const formInput = document.forms.ask.question.value;
-
     childAsk.parentNode.replaceChild(newDiv, childAsk);
 
+    // put the user's question in the DOM, with styling
     const answerChild = document.createElement('div');
     answerChild.innerText = formInput;
     answerChild.setAttribute("class", "col")
     answerChild.style.color = "white";
-
-    const newButton = document.createElement('button');
-    newButton.innerText = "Ask Again?";
-    newButton.setAttribute("class", "col btn btn-primary");
-    newButton.setAttribute("name", "newSubmitButton");
-    newButton.setAttribute("id", "newSubmitButton");
-    newButton.setAttribute("type", "submit");
-
     newDiv.appendChild(answerChild);
-    newDiv.appendChild(newButton);
+};
+
+function addResetButton() {
+        // create a new row, col, + button to reset the page, style
+        const newRow = document.createElement('div');
+        const bigContainer = document.getElementById('container');
+        newRow.setAttribute("class", "row w-100 mb-0 mt-5 d-flex justify-content-center align-end");
+        bigContainer.appendChild(newRow);
+        // col
+        const newCol = document.createElement('div');
+        newCol.setAttribute("class", "col-4 mt-5 mx-auto d-flex justify-content-center");
+        newRow.appendChild(newCol)
+        // button
+        const newButton = document.createElement('button');
+        newButton.innerText = "Ask Again?";
+        newButton.setAttribute("class", "col btn btn-primary mx-auto mt-5");
+        newButton.setAttribute("name", "newSubmitButton");
+        newButton.setAttribute("id", "newSubmitButton");
+        newButton.setAttribute("type", "submit");
+        newCol.appendChild(newButton);
 };
 
 if (document.getElementById('newSubmitButton') != null ) {
