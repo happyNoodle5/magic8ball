@@ -20,30 +20,30 @@
 </head>
 <body>
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-3">
             <div class="col text-center">
                 <h1>Get The Answers You're Looking For</h1>
             </div>
         </div>
-        <div class="row mt-5">
-            <div class="col-12 d-flex justify-content-center">
-                <form class="w-100" name="ask">
+        <div class="row mt-2">
+            <div class="col-12 d-flex justify-content-center" id="parentAsk">
+                <form class="w-100" name="ask" id="ask">
                     <div class="form-row form-group w-100">
                         <div class="col-8">
                             <label for="question">Ask Me Anything!</label>
                             <input type="text" class="form-control" id="question">
                         </div>
                         <div class="col-4 align-self-end">
-                            <button button type="submit" class="col btn btn-primary">Ask!</button>
+                            <button name="submitButton" id="submitButton" type="submit" class="col btn btn-primary">Ask!</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="row mb-5">
-            <div class="col px-0">
+        <div class="row my-2">
+            <div class="col px-0 d-flex justify-content-center">
                 <img src="/img/lace.png" class="mx-auto lace"></img>
-                <img src="/img/magic-start.svg" class="mx-auto d-block ball"></img>
+                <img src="/img/magic-start.svg" class="mx-auto d-block ball" id="ball"></img>
             </div>
         </div>
     </div>
