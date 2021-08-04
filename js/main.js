@@ -1,8 +1,3 @@
-// console.log(document.forms);
-// console.log(document.forms[0]);
-// console.log(document.forms['ask'].question);
-// console.log(document.forms['ask'].question.value);
-
 const answers = [
     '1',
     '2',
@@ -30,8 +25,6 @@ const random = Math.floor(Math.random() * (answers.length +1));
 const asky = document.forms.ask;
 const formButton = document.forms.ask.submitButton;
 
-// console.log(formInput);
-
 function question() {asky.addEventListener('submit', function (event){
     event.preventDefault();
     // prevents the default behavior (default submit behavior is to send data to a server)
@@ -46,7 +39,7 @@ function question() {asky.addEventListener('submit', function (event){
 question();
 
 function replaceImage() {
-    document.getElementById('ball').src = "/img/magic8ball_" + random + ".svg";
+    document.getElementById('ball').src = "img/magic8ball_" + random + ".svg";
 };
 
 function replaceForm() {
