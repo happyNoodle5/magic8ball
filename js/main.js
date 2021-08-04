@@ -26,20 +26,24 @@ const answers = [
     '20',
 ];
 
-const random = Math.floor(Math.random() * answers.length);
-const form = document.forms.ask;
+const random = Math.floor(Math.random() * (answers.length +1));
+const asky = document.forms.ask;
 const formButton = document.forms.ask.submitButton;
 
 // console.log(formInput);
 
-form.addEventListener('submit', function (event){
+function question() {asky.addEventListener('submit', function (event){
     event.preventDefault();
     // prevents the default behavior (default submit behavior is to send data to a server)
-    const formInput = document.forms.ask.question.value;
+
     replaceImage();
     replaceForm();
-    addResetButton()
+    addResetButton();
+    newAsk();
 });
+};
+
+question();
 
 function replaceImage() {
     document.getElementById('ball').src = "/img/magic8ball_" + random + ".svg";
@@ -71,6 +75,7 @@ function addResetButton() {
         const newRow = document.createElement('div');
         const bigContainer = document.getElementById('container');
         newRow.setAttribute("class", "row w-100 mb-0 mt-5 d-flex justify-content-center align-end");
+        newRow.setAttribute("id", "newRow");
         bigContainer.appendChild(newRow);
         // col
         const newCol = document.createElement('div');
@@ -86,9 +91,8 @@ function addResetButton() {
         newCol.appendChild(newButton);
 };
 
-if (document.getElementById('newSubmitButton') != null ) {
-    document.getElementById('newSubmitButton').addEventListener('click', function(event) {
-        window.location.reload();
-        return false;
+function newAsk() {
+    document.getElementById('newSubmitButton').addEventListener('click', function() {
+        window.location.reload(true);
     });
-}
+};

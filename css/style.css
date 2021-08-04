@@ -1,6 +1,7 @@
 body {
-    background: linear-gradient(#754ad8, #e664ac);
-    height: 120vh;
+    background: linear-gradient(#754ad8, #D05FB4);
+    max-height: 100vh;
+    overflow-y: hidden;
 }
 
 h1 {
