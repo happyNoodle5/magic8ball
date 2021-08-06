@@ -21,7 +21,7 @@ const answers = [
     '20',
 ];
 
-const random = Math.floor(Math.random() * (answers.length +1));
+const random = Math.ceil(Math.random() * (answers.length));
 const asky = document.forms.ask;
 const formButton = document.forms.ask.submitButton;
 
