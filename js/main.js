@@ -21,7 +21,7 @@ const answers = [
     '20',
 ];
 
-const random = Math.ceil(Math.random() * (answers.length));
+const random = Math.ceil(Math.random() * answers.length);
 const asky = document.forms.ask;
 const formButton = document.forms.ask.submitButton;
 
@@ -29,10 +29,15 @@ function question() {asky.addEventListener('submit', function (event){
     event.preventDefault();
     // prevents the default behavior (default submit behavior is to send data to a server)
 
+    // put new function to validate not empty string
+    if (asky.question.value.length < 1) {
+        asky.question.style.border = "solid 2px red";
+    } else {
     replaceImage();
     replaceForm();
     addResetButton();
     newAsk();
+    };
 });
 };
 
@@ -43,6 +48,10 @@ function replaceImage() {
 };
 
 function replaceForm() {
+
+    // UPDATE TO USE DISPLAY: NONE
+    asky.setAttribute("style", "display: none;")
+
     // select the container for the input form; to be replaced
     const childAsk = document.getElementById('ask');
 
